@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Abr-2021 às 11:39
+-- Generation Time: 21-Abr-2021 às 11:42
 -- Versão do servidor: 10.1.34-MariaDB
 -- PHP Version: 5.6.15
 
@@ -109,6 +109,24 @@ CREATE TABLE `permissoes` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `uf`
+--
+
+CREATE TABLE `uf` (
+  `id` int(11) NOT NULL,
+  `userinsert` int(11) DEFAULT NULL,
+  `userupdate` int(11) DEFAULT NULL,
+  `dateinsert` datetime DEFAULT NULL,
+  `dateupdate` datetime DEFAULT NULL,
+  `paisid_id` int(11) NOT NULL,
+  `ufnome` varchar(30) NOT NULL,
+  `ufsigla` varchar(2) NOT NULL,
+  `situacao` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `usuarios`
 --
 
@@ -180,6 +198,15 @@ ALTER TABLE `permissoes`
   ADD PRIMARY KEY (`idPermissao`);
 
 --
+-- Indexes for table `uf`
+--
+ALTER TABLE `uf`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `ufnome` (`ufnome`),
+  ADD UNIQUE KEY `ufsigla` (`ufsigla`),
+  ADD KEY `uf_43de5079` (`paisid_id`);
+
+--
 -- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -210,6 +237,11 @@ ALTER TABLE `pais`
 --
 ALTER TABLE `permissoes`
   MODIFY `idPermissao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+--
+-- AUTO_INCREMENT for table `uf`
+--
+ALTER TABLE `uf`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
