@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Abr-2021 às 10:16
+-- Generation Time: 21-Abr-2021 às 10:18
 -- Versão do servidor: 10.1.34-MariaDB
 -- PHP Version: 5.6.15
 
@@ -54,6 +54,21 @@ CREATE TABLE `emitente` (
                             `email` varchar(255) DEFAULT NULL,
                             `url_logo` varchar(225) DEFAULT NULL,
                             `situacao` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `logs`
+--
+
+CREATE TABLE `logs` (
+                        `idLogs` int(11) NOT NULL,
+                        `usuario` varchar(80) DEFAULT NULL,
+                        `tarefa` varchar(100) DEFAULT NULL,
+                        `data` date DEFAULT NULL,
+                        `hora` time DEFAULT NULL,
+                        `ip` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -126,6 +141,12 @@ ALTER TABLE `emitente`
     ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `logs`
+--
+ALTER TABLE `logs`
+    ADD PRIMARY KEY (`idLogs`);
+
+--
 -- Indexes for table `permissoes`
 --
 ALTER TABLE `permissoes`
@@ -147,6 +168,11 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `emitente`
     MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `logs`
+--
+ALTER TABLE `logs`
+    MODIFY `idLogs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=486;
 --
 -- AUTO_INCREMENT for table `permissoes`
 --
