@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Abr-2021 às 10:26
+-- Generation Time: 21-Abr-2021 às 11:39
 -- Versão do servidor: 10.1.34-MariaDB
 -- PHP Version: 5.6.15
 
@@ -27,11 +27,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `ci_sessions` (
-                               `session_id` varchar(40) NOT NULL DEFAULT '0',
-                               `ip_address` varchar(45) NOT NULL DEFAULT '0',
-                               `user_agent` varchar(120) NOT NULL,
-                               `last_activity` int(10) UNSIGNED NOT NULL DEFAULT '0',
-                               `user_data` text NOT NULL
+  `session_id` varchar(40) NOT NULL DEFAULT '0',
+  `ip_address` varchar(45) NOT NULL DEFAULT '0',
+  `user_agent` varchar(120) NOT NULL,
+  `last_activity` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `user_data` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -41,19 +41,19 @@ CREATE TABLE `ci_sessions` (
 --
 
 CREATE TABLE `emitente` (
-                            `id` int(11) NOT NULL,
-                            `nome` varchar(255) DEFAULT NULL,
-                            `cnpj` varchar(45) DEFAULT NULL,
-                            `ie` varchar(50) DEFAULT NULL,
-                            `rua` varchar(70) DEFAULT NULL,
-                            `numero` varchar(15) DEFAULT NULL,
-                            `bairro` varchar(45) DEFAULT NULL,
-                            `cidade` varchar(45) DEFAULT NULL,
-                            `uf` varchar(20) DEFAULT NULL,
-                            `telefone` varchar(20) DEFAULT NULL,
-                            `email` varchar(255) DEFAULT NULL,
-                            `url_logo` varchar(225) DEFAULT NULL,
-                            `situacao` tinyint(1) NOT NULL
+  `id` int(11) NOT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `cnpj` varchar(45) DEFAULT NULL,
+  `ie` varchar(50) DEFAULT NULL,
+  `rua` varchar(70) DEFAULT NULL,
+  `numero` varchar(15) DEFAULT NULL,
+  `bairro` varchar(45) DEFAULT NULL,
+  `cidade` varchar(45) DEFAULT NULL,
+  `uf` varchar(20) DEFAULT NULL,
+  `telefone` varchar(20) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `url_logo` varchar(225) DEFAULT NULL,
+  `situacao` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -63,12 +63,12 @@ CREATE TABLE `emitente` (
 --
 
 CREATE TABLE `logs` (
-                        `idLogs` int(11) NOT NULL,
-                        `usuario` varchar(80) DEFAULT NULL,
-                        `tarefa` varchar(100) DEFAULT NULL,
-                        `data` date DEFAULT NULL,
-                        `hora` time DEFAULT NULL,
-                        `ip` varchar(45) DEFAULT NULL
+  `idLogs` int(11) NOT NULL,
+  `usuario` varchar(80) DEFAULT NULL,
+  `tarefa` varchar(100) DEFAULT NULL,
+  `data` date DEFAULT NULL,
+  `hora` time DEFAULT NULL,
+  `ip` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -78,15 +78,15 @@ CREATE TABLE `logs` (
 --
 
 CREATE TABLE `pais` (
-                        `id` int(11) NOT NULL,
-                        `userinsert` int(11) DEFAULT NULL,
-                        `userupdate` int(11) DEFAULT NULL,
-                        `dateinsert` datetime DEFAULT NULL,
-                        `dateupdate` datetime DEFAULT NULL,
-                        `paisnome` varchar(30) NOT NULL,
-                        `paissigla` varchar(6) NOT NULL,
-                        `paisnacionalidade` varchar(50) NOT NULL,
-                        `situacao` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `userinsert` int(11) DEFAULT NULL,
+  `userupdate` int(11) DEFAULT NULL,
+  `dateinsert` datetime DEFAULT NULL,
+  `dateupdate` datetime DEFAULT NULL,
+  `paisnome` varchar(30) NOT NULL,
+  `paissigla` varchar(6) NOT NULL,
+  `paisnacionalidade` varchar(50) NOT NULL,
+  `situacao` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -96,14 +96,14 @@ CREATE TABLE `pais` (
 --
 
 CREATE TABLE `permissoes` (
-                              `idPermissao` int(11) NOT NULL,
-                              `userinsert` int(11) NOT NULL,
-                              `userupdate` int(11) NOT NULL,
-                              `dateinsert` datetime NOT NULL,
-                              `dateupdate` datetime NOT NULL,
-                              `nome` varchar(80) NOT NULL,
-                              `permissoes` text,
-                              `situacao` tinyint(1) DEFAULT NULL
+  `idPermissao` int(11) NOT NULL,
+  `userinsert` int(11) NOT NULL,
+  `userupdate` int(11) NOT NULL,
+  `dateinsert` datetime NOT NULL,
+  `dateupdate` datetime NOT NULL,
+  `nome` varchar(80) NOT NULL,
+  `permissoes` text,
+  `situacao` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -113,32 +113,32 @@ CREATE TABLE `permissoes` (
 --
 
 CREATE TABLE `usuarios` (
-                            `idUsuarios` int(11) NOT NULL,
-                            `nome` varchar(80) NOT NULL,
-                            `userinsert` int(11) NOT NULL,
-                            `userupdate` int(11) NOT NULL,
-                            `dateinsert` datetime NOT NULL,
-                            `dateupdate` datetime NOT NULL,
-                            `rg` varchar(20) DEFAULT NULL,
-                            `cpf` varchar(20) NOT NULL,
-                            `rua` varchar(70) DEFAULT NULL,
-                            `numero` varchar(15) DEFAULT NULL,
-                            `bairro` varchar(45) DEFAULT NULL,
-                            `cidade` varchar(45) DEFAULT NULL,
-                            `estado` varchar(20) DEFAULT NULL,
-                            `email` varchar(80) NOT NULL,
-                            `senha` varchar(45) NOT NULL,
-                            `telefone` varchar(20) NOT NULL,
-                            `celular` varchar(20) DEFAULT NULL,
-                            `situacao` tinyint(1) NOT NULL,
-                            `id_regiao` int(9) NOT NULL,
-                            `sexo` varchar(1) NOT NULL,
-                            `url_ass` varchar(255) NOT NULL,
-                            `permissoes_id` int(11) NOT NULL,
-                            `dashboard` int(1) NOT NULL,
-                            `nascido_em` varchar(25) NOT NULL,
-                            `id_emitente` int(11) NOT NULL,
-                            `url_logo` varchar(255) NOT NULL
+  `idUsuarios` int(11) NOT NULL,
+  `nome` varchar(80) NOT NULL,
+  `userinsert` int(11) NOT NULL,
+  `userupdate` int(11) NOT NULL,
+  `dateinsert` datetime NOT NULL,
+  `dateupdate` datetime NOT NULL,
+  `rg` varchar(20) DEFAULT NULL,
+  `cpf` varchar(20) NOT NULL,
+  `rua` varchar(70) DEFAULT NULL,
+  `numero` varchar(15) DEFAULT NULL,
+  `bairro` varchar(45) DEFAULT NULL,
+  `cidade` varchar(45) DEFAULT NULL,
+  `estado` varchar(20) DEFAULT NULL,
+  `email` varchar(80) NOT NULL,
+  `senha` varchar(45) NOT NULL,
+  `telefone` varchar(20) NOT NULL,
+  `celular` varchar(20) DEFAULT NULL,
+  `situacao` tinyint(1) NOT NULL,
+  `id_regiao` int(9) NOT NULL,
+  `sexo` varchar(1) NOT NULL,
+  `url_ass` varchar(255) NOT NULL,
+  `permissoes_id` int(11) NOT NULL,
+  `dashboard` int(1) NOT NULL,
+  `nascido_em` varchar(25) NOT NULL,
+  `id_emitente` int(11) NOT NULL,
+  `url_logo` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -149,26 +149,26 @@ CREATE TABLE `usuarios` (
 -- Indexes for table `ci_sessions`
 --
 ALTER TABLE `ci_sessions`
-    ADD PRIMARY KEY (`session_id`),
+  ADD PRIMARY KEY (`session_id`),
   ADD KEY `last_activity_idx` (`last_activity`);
 
 --
 -- Indexes for table `emitente`
 --
 ALTER TABLE `emitente`
-    ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `logs`
 --
 ALTER TABLE `logs`
-    ADD PRIMARY KEY (`idLogs`);
+  ADD PRIMARY KEY (`idLogs`);
 
 --
 -- Indexes for table `pais`
 --
 ALTER TABLE `pais`
-    ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `paisnome` (`paisnome`),
   ADD UNIQUE KEY `paissigla` (`paissigla`),
   ADD UNIQUE KEY `paisnacionalidade` (`paisnacionalidade`);
@@ -177,13 +177,13 @@ ALTER TABLE `pais`
 -- Indexes for table `permissoes`
 --
 ALTER TABLE `permissoes`
-    ADD PRIMARY KEY (`idPermissao`);
+  ADD PRIMARY KEY (`idPermissao`);
 
 --
 -- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
-    ADD PRIMARY KEY (`idUsuarios`),
+  ADD PRIMARY KEY (`idUsuarios`),
   ADD KEY `fk_usuarios_permissoes1_idx` (`permissoes_id`);
 
 --
@@ -194,27 +194,27 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `emitente`
 --
 ALTER TABLE `emitente`
-    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-    MODIFY `idLogs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=486;
+  MODIFY `idLogs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=489;
 --
 -- AUTO_INCREMENT for table `pais`
 --
 ALTER TABLE `pais`
-    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `permissoes`
 --
 ALTER TABLE `permissoes`
-    MODIFY `idPermissao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+  MODIFY `idPermissao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-    MODIFY `idUsuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idUsuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
