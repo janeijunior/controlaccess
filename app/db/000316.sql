@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Abr-2021 às 11:42
+-- Generation Time: 21-Abr-2021 às 11:58
 -- Versão do servidor: 10.1.34-MariaDB
 -- PHP Version: 5.6.15
 
@@ -19,6 +19,23 @@ SET time_zone = "+00:00";
 --
 -- Database: `000316`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `cidade`
+--
+
+CREATE TABLE `cidade` (
+  `id` int(11) NOT NULL,
+  `userinsert` int(11) DEFAULT NULL,
+  `userupdate` int(11) DEFAULT NULL,
+  `dateinsert` datetime DEFAULT NULL,
+  `dateupdate` datetime DEFAULT NULL,
+  `ufid_id` int(11) NOT NULL,
+  `cidadenome` varchar(50) NOT NULL,
+  `situacao` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -164,6 +181,13 @@ CREATE TABLE `usuarios` (
 --
 
 --
+-- Indexes for table `cidade`
+--
+ALTER TABLE `cidade`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cidade_837efe53` (`ufid_id`);
+
+--
 -- Indexes for table `ci_sessions`
 --
 ALTER TABLE `ci_sessions`
@@ -218,6 +242,11 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT for table `cidade`
+--
+ALTER TABLE `cidade`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6799;
+--
 -- AUTO_INCREMENT for table `emitente`
 --
 ALTER TABLE `emitente`
@@ -247,6 +276,16 @@ ALTER TABLE `uf`
 --
 ALTER TABLE `usuarios`
   MODIFY `idUsuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `cidade`
+--
+ALTER TABLE `cidade`
+  ADD CONSTRAINT `ufid_id_refs_id_0e958e53` FOREIGN KEY (`ufid_id`) REFERENCES `uf` (`id`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
