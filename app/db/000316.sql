@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Abr-2021 às 10:08
+-- Generation Time: 21-Abr-2021 às 10:16
 -- Versão do servidor: 10.1.34-MariaDB
 -- PHP Version: 5.6.15
 
@@ -56,13 +56,22 @@ CREATE TABLE `emitente` (
                             `situacao` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Extraindo dados da tabela `emitente`
+-- Estrutura da tabela `permissoes`
 --
 
-INSERT INTO `emitente` (`id`, `nome`, `cnpj`, `ie`, `rua`, `numero`, `bairro`, `cidade`, `uf`, `telefone`, `email`, `url_logo`, `situacao`) VALUES
-(3, 'Condomínio Life Resort I ', '27454273000162', '25.748.823-5', 'Rua Drumond', '182', 'Campo Grande', 'Rio de Janeiro', 'Rio de Janeiro', '2135145720', 'support@inmanager.com', 'http://127.0.0.1/dev_source/assets/uploads/3aa722464f3840a0c560ea8b9ae23f7b.png', 1),
-(4, 'Condomínio Life Resort II', '27454273000162', '25.748.823-5', 'Rua Drumond', '182', 'Campo Grande', 'Rio de Janeiro', 'Rio de Janeiro', '2135145720', 'support@inmanager.com', 'http://127.0.0.1/dev_source/assets/uploads/3aa722464f3840a0c560ea8b9ae23f7b.png', 1);
+CREATE TABLE `permissoes` (
+                              `idPermissao` int(11) NOT NULL,
+                              `userinsert` int(11) NOT NULL,
+                              `userupdate` int(11) NOT NULL,
+                              `dateinsert` datetime NOT NULL,
+                              `dateupdate` datetime NOT NULL,
+                              `nome` varchar(80) NOT NULL,
+                              `permissoes` text,
+                              `situacao` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -100,15 +109,6 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `usuarios`
---
-
-INSERT INTO `usuarios` (`idUsuarios`, `nome`, `userinsert`, `userupdate`, `dateinsert`, `dateupdate`, `rg`, `cpf`, `rua`, `numero`, `bairro`, `cidade`, `estado`, `email`, `senha`, `telefone`, `celular`, `situacao`, `id_regiao`, `sexo`, `url_ass`, `permissoes_id`, `dashboard`, `nascido_em`, `id_emitente`, `url_logo`) VALUES
-(1, 'admin', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'MG-25.502.560', '600.021.520-87', 'Rua Acima', '12', 'Alvorada', 'Teste', 'MG', 'admin@admin.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '0000-0000', '', 1, 0, '0', 'http://10.0.0.113/dev_source/assets/uploads/96cb070acb1704b51271ee7596a2c44a.jpg', 1, 0, '0000-00-00', 0, 'http://67d206c9819e.sn.mynetname.net:60009/inmanager/app/assets/uploads/f8ff20d858526c51ea7397204e4df3a8.jpeg'),
-(3, 'Janei Araujo', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '290860592', '600.021.520-87', ' Rua Acima', '182', 'Campo Grande', 'Rio de Janeiro', 'RJ', 'janei.junior@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '(21) 3403-5075', '(21) 99985-5720', 1, 0, 'M', 'http://127.0.0.1:8080/inmanager/app/assets/uploads/e68653a91771f5b90794b02901fdbbca.PNG', 112, 0, '21/10/1996', 0, 'http://127.0.0.1:8080/control_access/app/assets/uploads/f2a4da7fdeb360a135370d94f177a3b7.jpg'),
-(5, 'teste', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '29222222222212', '600.021.520-87', 'Rua Acima, Casa 182', 'Casa 182', 'CAMPO GRANDE', 'Rio de Janeiro', 'RJ', 'teste@teste.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '21969196186', '', 1, 0, '0', '', 17, 0, '0000-00-00', 0, '');
-
---
 -- Indexes for dumped tables
 --
 
@@ -126,6 +126,12 @@ ALTER TABLE `emitente`
     ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `permissoes`
+--
+ALTER TABLE `permissoes`
+    ADD PRIMARY KEY (`idPermissao`);
+
+--
 -- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -141,6 +147,11 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `emitente`
     MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `permissoes`
+--
+ALTER TABLE `permissoes`
+    MODIFY `idPermissao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
