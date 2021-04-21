@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Abr-2021 às 10:18
+-- Generation Time: 21-Abr-2021 às 10:26
 -- Versão do servidor: 10.1.34-MariaDB
 -- PHP Version: 5.6.15
 
@@ -70,6 +70,24 @@ CREATE TABLE `logs` (
                         `hora` time DEFAULT NULL,
                         `ip` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pais`
+--
+
+CREATE TABLE `pais` (
+                        `id` int(11) NOT NULL,
+                        `userinsert` int(11) DEFAULT NULL,
+                        `userupdate` int(11) DEFAULT NULL,
+                        `dateinsert` datetime DEFAULT NULL,
+                        `dateupdate` datetime DEFAULT NULL,
+                        `paisnome` varchar(30) NOT NULL,
+                        `paissigla` varchar(6) NOT NULL,
+                        `paisnacionalidade` varchar(50) NOT NULL,
+                        `situacao` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -147,6 +165,15 @@ ALTER TABLE `logs`
     ADD PRIMARY KEY (`idLogs`);
 
 --
+-- Indexes for table `pais`
+--
+ALTER TABLE `pais`
+    ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `paisnome` (`paisnome`),
+  ADD UNIQUE KEY `paissigla` (`paissigla`),
+  ADD UNIQUE KEY `paisnacionalidade` (`paisnacionalidade`);
+
+--
 -- Indexes for table `permissoes`
 --
 ALTER TABLE `permissoes`
@@ -173,6 +200,11 @@ ALTER TABLE `emitente`
 --
 ALTER TABLE `logs`
     MODIFY `idLogs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=486;
+--
+-- AUTO_INCREMENT for table `pais`
+--
+ALTER TABLE `pais`
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `permissoes`
 --
